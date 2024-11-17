@@ -32,7 +32,10 @@
 							}
 						],
 						"styles": [
-							"src/styles.scss"
+              "src/styles/tailwind.scss",
+              "@angular/material/prebuilt-themes/cyan-orange.css",
+							"src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
 						],
 						"scripts": [],
 						"main": "src/main.ts",
@@ -101,7 +104,10 @@
 							}
 						],
 						"styles": [
-							"src/styles.scss"
+              "src/styles/tailwind.scss",
+              "@angular/material/prebuilt-themes/cyan-orange.css",
+							"src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
 						],
 						"scripts": []
 					}

@@ -1,0 +1,77 @@
+<div>
+  <h2>{{ usuario ? "Editar" : "Crear" }} usuario</h2>
+</div>
+<div class="sm:px-24">
+  <form [formGroup]="usuarioForm">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div class="w-full">
+        <mat-form-field class="w-full" appearance="outline">
+          <mat-label>Nombres</mat-label>
+          <input matInput class="w-full" formControlName="Nombres" />
+          <mat-error> {{ getErrors("Nombres", "Nombres") }} </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="w-full">
+        <mat-form-field class="w-full" appearance="outline">
+          <mat-label>Apellidos</mat-label>
+          <input matInput class="w-full" formControlName="Apellidos" />
+          <mat-error>{{ getErrors("Apellidos", "Apellidos") }} </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="w-full">
+        <mat-form-field class="w-full" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput class="w-full" formControlName="Email" />
+          <mat-error>{{ getErrors("Email", "Email") }} </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="w-full">
+        <mat-form-field class="w-full" appearance="outline">
+          <mat-label>Nickname</mat-label>
+          <input matInput class="w-full" formControlName="Nickname" />
+          <mat-error>{{ getErrors("Nickname", "Nickname") }} </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="w-full">
+        <mat-form-field class="w-full" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            class="w-full"
+            [type]="hidePassword() ? 'password' : 'text'"
+            formControlName="Password"
+          />
+          <button mat-icon-button matSuffix (click)="clickEvent($event)">
+            <mat-icon>{{
+              hidePassword() ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+          <mat-error>{{ getErrors("Contraseña", "Password") }} </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="w-full">
+        <mat-form-field class="w-full" appearance="outline">
+          <mat-label>Repetir password</mat-label>
+          <input
+            matInput
+            class="w-full"
+            formControlName="RepeatPassword"
+            [type]="hidePassword() ? 'password' : 'text'"
+          />
+          <button mat-icon-button matSuffix (click)="clickEvent($event)">
+            <mat-icon>{{
+              hidePassword() ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+          <mat-error
+            >{{ getErrors("Repite tu contraseña", "RepeatPassword") }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <button class="col-span-2" (click)="createOrEditUser()" mat-flat-button>
+        {{ usuario ? "Editar" : "Crear" }}
+      </button>
+    </div>
+  </form>
+</div>
